@@ -1,0 +1,12 @@
+{
+    "ngPackage": {
+        "lib": {
+            "entryFile": "main/src/public-api.ts"
+        }
+    },
+    "peerDependencies": {
+        "@angular/common": "11.1.2",
+        "@angular/core": "11.1.2",
+        "moment": "2.29.1"
+    }
+}
