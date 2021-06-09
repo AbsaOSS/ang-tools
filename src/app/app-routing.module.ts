@@ -14,11 +14,20 @@
  * limitations under the License.
  */
 
+import { AlFakePageContentComponent } from '@absaoss/ang-tools/common/layout/ang'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
 
-const routes: Routes = []
+const routes: Routes = [
+    {
+        path: '',
+        component: AlFakePageContentComponent,
+        data: {
+            title: 'ABSA NG Tools'
+        }
+    }
+]
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

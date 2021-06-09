@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+require('jest-preset-angular/ngcc-jest-processor')
+
 module.exports = {
     'preset': 'jest-preset-angular',
     'setupFilesAfterEnv': [
@@ -22,20 +24,22 @@ module.exports = {
     'transformIgnorePatterns': [
         'node_modules/(?!@ngrx)'
     ],
+    'rootDir': __dirname,
     'coverageReporters': [
         'text',
         'html',
         'cobertura',
     ],
     'moduleNameMapper': {
-        '/symphony-api/': __dirname + '/projects/symphony-api/src/public-api',
-        '^symphony-api$': __dirname + '/projects/symphony-api/src/public-api',
-        '/symphony-common/': __dirname + '/projects/symphony-common/main/src/public-api',
-        '^symphony-common$': __dirname + '/projects/symphony-common/main/src/public-api',
-        '/symphony-shared/': __dirname + '/projects/symphony-shared/main/src/public-api',
-        '^symphony-shared$': __dirname + '/projects/symphony-shared/main/src/public-api',
-        '/symphony-utils/': __dirname + '/projects/symphony-utils/main/src/public-api',
-        '^symphony-utils$': __dirname + '/projects/symphony-utils/main/src/public-api',
+        '^lodash-es$': __dirname + '/node_modules/lodash/index.js',
+        '/@absaoss\\/ang-tools/': __dirname + '/projects/ang-tools/main/src/public-api',
+        '^@absaoss\\/ang-tools$': __dirname + '/projects/ang-tools/main/src/public-api',
+        '/@absaoss\\/ang-tools\\/common/': __dirname + '/projects/ang-tools/common/main/src/public-api',
+        '^@absaoss\\/ang-tools\\/common$': __dirname + '/projects/ang-tools/common/main/src/public-api',
+        '/@absaoss\\/ang-tools\\/utils/': __dirname + '/projects/ang-tools/utils/main/src/public-api',
+        '^@absaoss\\/ang-tools\\/utils$': __dirname + '/projects/ang-tools/utils/main/src/public-api',
+        '/@absaoss\\/ang-tools\\/utils\\/translate/': __dirname + '/projects/ang-tools/utils/translate/src/public-api',
+        '^@absaoss\\/ang-tools\\/utils\\/translate$': __dirname + '/projects/ang-tools/utils/translate/src/public-api',
     },
     'resolver': null,
     'globals': {

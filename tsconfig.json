@@ -29,31 +29,41 @@
             "@env": [
                 "src/environments"
             ],
-            "symphony-api": [
-                "projects/symphony-api/main/src/public-api"
+            "@absaoss/ang-tools": [
+                "projects/ang-tools/main/src/public-api"
             ],
-            "symphony-api/*": [
-                "projects/symphony-api/main/src/public-api/*"
+            "@absaoss/ang-tools/*": [
+                "projects/ang-tools/main/src/public-api/*"
             ],
-            "symphony-common": [
-              "projects/symphony-common/main/src/public-api",
-              "dist/symphony-common/symphony-common",
-              "dist/symphony-common"
+            "@absaoss/ang-tools/shared": [
+                "projects/ang-tools/shared/main/src/public-api"
             ],
-            "symphony-common/*": [
-                "projects/symphony-common/main/src/public-api/*"
+            "@absaoss/ang-tools/shared/*": [
+                "projects/ang-tools/shared/main/src/public-api/*"
             ],
-            "symphony-shared": [
-                "projects/symphony-shared/main/src/public-api"
+            "@absaoss/ang-tools/common": [
+                "projects/ang-tools/common/main/src/public-api"
             ],
-            "symphony-shared/*": [
-                "projects/symphony-shared/main/src/public-api/*"
+            "@absaoss/ang-tools/common/*": [
+                "projects/ang-tools/common/main/src/public-api/*"
             ],
-            "symphony-utils": [
-                "projects/symphony-utils/main/src/public-api"
+            "@absaoss/ang-tools/common/layout/ang": [
+                "projects/ang-tools/common/layout/ang/src/public-api"
             ],
-            "symphony-utils/*": [
-                "projects/symphony-utils/main/src/public-api/*"
+            "@absaoss/ang-tools/common/layout/ang/*": [
+                "projects/ang-tools/common/layout/ang/src/public-api/*"
+            ],
+            "@absaoss/ang-tools/utils/translate": [
+                "projects/ang-tools/utils/translate/src/public-api"
+            ],
+            "@absaoss/ang-tools/utils/translate/*": [
+                "projects/ang-tools/utils/translate/src/public-api/*"
+            ],
+            "@absaoss/ang-tools/utils": [
+                "projects/ang-tools/utils/main/src/public-api"
+            ],
+            "@absaoss/ang-tools/utils/*": [
+                "projects/ang-tools/utils/main/src/public-api/*"
             ]
         }
     },
@@ -63,6 +73,6 @@
     ],
     "angularCompilerOptions": {
         "fullTemplateTypeCheck": true,
-        "strictInjectionParameters": true,
+        "strictInjectionParameters": true
     }
 }

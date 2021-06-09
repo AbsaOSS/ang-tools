@@ -1,0 +1,64 @@
+/*!
+ * Copyright 2021 ABSA Group Limited
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// ABSA palette
+$color-silver: #736464 !default;
+$color-platinum: #5a4b4b !default;
+$color-human: #aa052d !default;
+$color-passion: #dc0032 !default;
+$color-care: #f05a78 !default;
+$color-energy: #f47721 !default;
+$color-depth: #500a28 !default;
+$color-luxury: #640032 !default;
+$color-calm: #870a3c !default;
+$color-smile: #f0325a !default;
+// ./ABSA palette
+
+
+$color-black: #2d2323 !default;
+$color-black-50: rgba(45, 35, 35, 0.5) !default;
+
+$color-grey: #ddd !default;
+$color-grey--50: rgba(221, 221, 221, 0.5) !default;
+$color-grey--25: rgba(221, 221, 221, 0.25) !default;
+$color-grey-1: #ccc !default;
+$color-grey-2: #aaa !default;
+
+$color-white: #fff !default;
+$color-white-90: rgba(255, 255, 255, 0.9) !default;
+$color-white-75: rgba(255, 255, 255, 0.75) !default;
+$color-white-55: rgba(255, 255, 255, 0.55) !default;
+$color-white-25: rgba(255, 255, 255, 0.25) !default;
+$color-white-smoked: #fcfcfc !default;
+
+$color-grey-light: #efefef !default;
+$color-grey-light-1: #fafafa !default;
+$color-grey-light-2: #f5f5f5 !default;
+$color-grey-light-3: #f3f3f3 !default;
+$color-grey-light-4: #f0f0f0 !default;
+
+$color-grey-dark: #736464 !default;
+$color-grey-dark-75: rgba(122, 122, 125, 0.75) !default;
+$color-grey-dark-50: rgba(122, 122, 125, 0.5) !default;
+$color-green-light: #0da7a7 !default;
+$color-green: #329b9b !default;
+$color-green-dark: #2b8181 !default;
+$color-orange: $color-energy !default;
+$color-orange-75: rgba(244, 119, 33, 0.75) !default;
+$color-orange-50: rgba(244, 119, 33, 0.5) !default;
+$color-orange-25: rgba(244, 119, 33, 0.25) !default;
+$color-pink: $color-human !default;
+$color-shadow: rgba(0, 0, 0, 0.12) !default;

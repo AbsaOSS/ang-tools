@@ -1,0 +1,93 @@
+<!--
+  ~ Copyright 2021 ABSA Group Limited
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<div class="ang-layout-common"
+     [class.ang-layout-common--embedded]="isEmbeddedMode"
+     [class.ang-layout-common--no-header]="noHeader">
+
+    <mat-sidenav-container>
+
+        <!-- SIDEBAR -->
+        <mat-sidenav #sidenav
+                     class="al-sidenav"
+                     mode="side"
+                     disableClose="true"
+                     opened="true"
+                     *ngIf="!isEmbeddedMode"
+                     [class.al-sidenav--expanded]="isSideNavExpanded">
+
+            <div class="al-sidenav__inner">
+                <!-- SECTION :: SIDEBAR HEADER -->
+                <div>
+                    <ng-template *ngIf="sectionsTemplatesCollection[SectionName.sidebarHeader]"
+                                 [ngTemplateOutlet]="sectionsTemplatesCollection[SectionName.sidebarHeader]"
+                                 [ngTemplateOutletContext]="{isExpanded: isSideNavExpanded}">
+                    </ng-template>
+                </div>
+                <!-- SECTION :: ./SIDEBAR HEADER -->
+
+                <div class="flex-grow-1">
+                    <!-- SECTION :: SIDEBAR -->
+                    <ng-template *ngIf="sectionsTemplatesCollection[SectionName.sidebar]"
+                                 [ngTemplateOutlet]="sectionsTemplatesCollection[SectionName.sidebar]"
+                                 [ngTemplateOutletContext]="{isExpanded: isSideNavExpanded}">
+                    </ng-template>
+                    <!-- ./SECTION :: SIDEBAR -->
+                </div>
+                <div class="al-sidenav__footer">
+                    <div class="al-sidenav__version " [hidden]="!isSideNavExpanded">
+                        <div class="al-sidenav__version-label"> {{ 'COMMON.LAYOUT.ANG.APP_VERSION' | translate }}:</div>
+                        {{ appVersion }}
+                    </div>
+                    <div class="d-flex pt-2" *ngIf="buildRevision || buildDate">
+                        <div class="al-sidenav__version pr-2" [hidden]="!isSideNavExpanded" *ngIf="buildRevision">
+                            <div class="al-sidenav__version-label"> {{ 'COMMON.LAYOUT.ANG.BUILD_REVISION' | translate }}:</div>
+                            {{ buildRevision }}
+                        </div>
+                        <div class="al-sidenav__version" [hidden]="!isSideNavExpanded" *ngIf="buildDate">
+                            <div class="al-sidenav__version-label"> {{ 'COMMON.LAYOUT.ANG.BUILD_TIMESTAMP' | translate }}:</div>
+                            {{ buildDate | date : 'yyyy-MM-dd' }}
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button mat-button mat-icon-button
+                                class="al-sidenav__expand-btn"
+                                (click)="onExpandedToggleBtnClicked()">
+                            <ang-icon [icon]="isSideNavExpanded ? 'chevron-triple-left' : 'chevron-triple-right'"></ang-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </mat-sidenav>
+        <!-- ./SIDEBAR -->
+
+        <!-- CONTENT -->
+        <mat-sidenav-content [class.al-sidenav-content--expanded]="isSideNavExpanded">
+
+            <div class="al-content__wrapper">
+
+                <!-- SECTION :: CONTENT -->
+                <ng-content></ng-content>
+                <!-- ./SECTION :: CONTENT -->
+
+            </div>
+
+        </mat-sidenav-content>
+        <!-- ./CONTENT -->
+
+    </mat-sidenav-container>
+</div>

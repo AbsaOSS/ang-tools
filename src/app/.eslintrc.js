@@ -21,7 +21,7 @@ module.exports = {
             'error',
             {
                 'type': 'attribute',
-                'prefix': ['app', 'symphony'],
+                'prefix': ['app'],
                 'style': 'camelCase'
             }
         ],
@@ -29,7 +29,7 @@ module.exports = {
             'error',
             {
                 'type': 'element',
-                'prefix': ['app', 'symphony'],
+                'prefix': ['app'],
                 'style': 'kebab-case'
             }
         ]

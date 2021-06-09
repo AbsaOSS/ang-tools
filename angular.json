@@ -1,9 +1,12 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "cli": {
+      "analytics": false
+    },
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "ng-tools-dev-app": {
+        "ang-tools-dev-app": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -39,19 +42,45 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/ng-tools",
+                        "outputPath": "dist/ang-tools-dev-app",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
                         "aot": true,
                         "assets": [
-                            "src/favicon.ico",
-                            "src/assets"
+                            {
+                                "glob": "**/*",
+                                "input": "projects/ang-tools/common/main/assets",
+                                "output": "/assets"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "projects/ang-tools/main/assets",
+                                "output": "/assets"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "projects/ang-tools/common/layout/ang/assets",
+                                "output": "/assets"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "src/assets",
+                                "output": "/assets"
+                            }
                         ],
                         "styles": [
                             "src/styles/styles.scss"
                         ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": [
+                                "./src/styles",
+                                "./projects/ang-tools/main/styles",
+                                "./projects/ang-tools/common/main/styles",
+                                "./projects/ang-tools/common/layout/ang/styles"
+                            ]
+                        },
                         "scripts": []
                     },
                     "configurations": {
@@ -66,6 +95,7 @@
                             "outputHashing": "all",
                             "sourceMap": false,
                             "namedChunks": false,
+                            "aot": true,
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
@@ -87,18 +117,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "ng-tools:build"
+                        "browserTarget": "ang-tools-dev-app:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "ng-tools:build:production"
+                            "browserTarget": "ang-tools-dev-app:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "ng-tools:build"
+                        "browserTarget": "ang-tools:build"
                     }
                 },
                 "test": {
@@ -132,21 +162,21 @@
                 }
             }
         },
-        "ng-tools": {
+        "ang-tools": {
             "projectType": "library",
-            "root": "projects/ng-tools",
-            "sourceRoot": "projects/ng-tools/src",
+            "root": "projects/ang-tools",
+            "sourceRoot": "projects/ang-tools/main/src",
             "prefix": "lib",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:ng-packagr",
                     "options": {
-                        "tsConfig": "projects/ng-tools/tsconfig.lib.json",
-                        "project": "projects/ng-tools/ng-package.json"
+                        "tsConfig": "projects/ang-tools/tsconfig.lib.json",
+                        "project": "projects/ang-tools/ng-package.json"
                     },
                     "configurations": {
                         "production": {
-                            "tsConfig": "projects/ng-tools/tsconfig.lib.prod.json"
+                            "tsConfig": "projects/ang-tools/tsconfig.lib.prod.json"
                         }
                     }
                 },
@@ -156,7 +186,7 @@
                         "no-cache": true,
                         "bail": true,
                         "scripts": [],
-                        "tsConfig": "projects/ng-tools/tsconfig.spec.json"
+                        "tsConfig": "projects/ang-tools/tsconfig.spec.json"
                     }
                 },
                 "lint": {
@@ -175,5 +205,5 @@
             }
         }
     },
-    "defaultProject": "ng-tools-dev-app"
+    "defaultProject": "ang-tools-dev-app"
 }

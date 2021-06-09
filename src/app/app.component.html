@@ -14,6 +14,31 @@
   ~ limitations under the License.
   -->
 
-<h1>ABSA NG Tools!</h1>
+<ng-container *ngIf="state$ | async as state">
 
-<router-outlet></router-outlet>
+    <ang-layout *ngIf="state.isInitialized"
+                (sidenavExpanded$)="onSideNavExpanded($event.isExpanded)"
+                [appVersion]="state.appVersion"
+                [isSideNavExpanded]="state.isSideNavExpanded">
+
+        <!-- SIDEBAR -->
+        <ng-template alLayoutSection="sidebarHeader">
+            <al-sidebar-logo name="ABSA NG Tools"
+                             [showOnlyLogo]="!state.isSideNavExpanded">
+            </al-sidebar-logo>
+        </ng-template>
+
+        <ng-template let-isExpanded="isExpanded" alLayoutSection="sidebar">
+            <al-sidebar-menu [menuItems]="state.sidebarMenuItems"
+                             [showOnlyIcons]="!isExpanded">
+            </al-sidebar-menu>
+        </ng-template>
+        <!-- ./SIDEBAR -->
+
+        <!-- CONTENT -->
+        <router-outlet></router-outlet>
+        <!-- CONTENT -->
+
+    </ang-layout>
+
+</ng-container>

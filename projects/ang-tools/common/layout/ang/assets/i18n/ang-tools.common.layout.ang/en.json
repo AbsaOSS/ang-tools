@@ -1,0 +1,12 @@
+{
+    "COMMON": {
+        "LAYOUT": {
+            "ANG": {
+                "APP_VERSION": "Version",
+                "BUILD_REVISION": "Build Revision",
+                "BUILD_TIMESTAMP": "Build Date",
+                "FAKE_PAGE__MESSAGE": "Page is under development"
+            }
+        }
+    }
+}

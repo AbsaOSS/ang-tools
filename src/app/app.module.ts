@@ -14,8 +14,12 @@
  * limitations under the License.
  */
 
+import { AngLayoutModule } from '@absaoss/ang-tools/common/layout/ang'
+import { AngTranslateCoreModule, ANG_TRANSLATE_COMMON_ASSETS, toAssetsFilePath } from '@absaoss/ang-tools/utils/translate'
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -27,10 +31,28 @@ import { AppComponent } from './app.component'
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
+
+        HttpClientModule,
+
+        AngTranslateCoreModule,
+        AngLayoutModule,
+
         AppRoutingModule
     ],
-    providers: [],
-    bootstrap: [AppComponent]
+    providers: [
+        {
+            provide: ANG_TRANSLATE_COMMON_ASSETS,
+            useValue: [
+                toAssetsFilePath('app'),
+                toAssetsFilePath('ang-tools.core'),
+                toAssetsFilePath('ang-tools.common.layout.ang'),
+            ]
+        },
+    ],
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule {
 }

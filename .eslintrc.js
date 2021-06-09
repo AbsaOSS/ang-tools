@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 ABSA Group Limited
+ * Copyright 2021 ABSA Group Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -119,7 +119,7 @@ module.exports = {
                     'error',
                     {
                         'type': 'attribute',
-                        'prefix': 'symphony',
+                        'prefix': 'ang',
                         'style': 'camelCase'
                     }
                 ],
@@ -127,7 +127,7 @@ module.exports = {
                     'error',
                     {
                         'type': 'element',
-                        'prefix': 'symphony',
+                        'prefix': 'ang',
                         'style': 'kebab-case'
                     }
                 ],
@@ -186,7 +186,10 @@ module.exports = {
                 '@angular-eslint/no-outputs-metadata-property': 'error',
                 '@angular-eslint/use-lifecycle-interface': 'warn',
                 '@angular-eslint/use-pipe-transform-interface': 'error',
-                '@typescript-eslint/prefer-regexp-exec': 0,
+                '@typescript-eslint/no-unsafe-return': 'warn',
+                '@typescript-eslint/no-unsafe-member-access': 'warn',
+                '@typescript-eslint/no-unsafe-assignment': 'off',
+                '@typescript-eslint/no-unsafe-call': 'warn',
             }
         },
         {

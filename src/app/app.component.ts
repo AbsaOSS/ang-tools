@@ -14,7 +14,11 @@
  * limitations under the License.
  */
 
-import { Component } from '@angular/core'
+import { BaseLocalStateComponent } from '@absaoss/ang-tools/utils'
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+
+import { AppStore } from './store'
 
 
 @Component({
@@ -22,5 +26,28 @@ import { Component } from '@angular/core'
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent extends BaseLocalStateComponent<AppStore.State> implements OnInit {
+
+    constructor(private readonly router: Router) {
+        super()
+        this.updateState(
+            AppStore.getDefaultState()
+        )
+    }
+
+    ngOnInit(): void {
+        this.init()
+    }
+
+    onSideNavExpanded(isExpanded: boolean): void {
+        this.updateState(
+            AppStore.reduceSideNavExpanded(this.state, isExpanded)
+        )
+    }
+
+    private init(): void {
+        this.updateState({
+            isInitialized: true,
+        })
+    }
 }
