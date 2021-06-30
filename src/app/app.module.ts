@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { AngSectionNavTabsModule } from '@absaoss/ang-tools/common'
 import { AngLayoutModule } from '@absaoss/ang-tools/common/layout/ang'
 import { AngTranslateCoreModule, ANG_TRANSLATE_COMMON_ASSETS, toAssetsFilePath } from '@absaoss/ang-tools/utils/translate'
 import { HttpClientModule } from '@angular/common/http'
@@ -23,11 +24,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
+import { AppComponentsExamplePageComponent } from './pages'
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        AppComponentsExamplePageComponent
     ],
     imports: [
         BrowserModule,
@@ -38,7 +41,8 @@ import { AppComponent } from './app.component'
         AngTranslateCoreModule,
         AngLayoutModule,
 
-        AppRoutingModule
+        AppRoutingModule,
+        AngSectionNavTabsModule
     ],
     providers: [
         {

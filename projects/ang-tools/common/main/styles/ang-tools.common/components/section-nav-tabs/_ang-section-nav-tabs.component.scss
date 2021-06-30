@@ -1,0 +1,134 @@
+/*!
+ * Copyright 2021 ABSA Group Limited
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import 'vars';
+@import 'mixins';
+
+@mixin section-tab-color($section-tabs, $color, $outer-border-color) {
+    #{$section-tabs}__tab-link {
+        border-color: $outer-border-color;
+    }
+
+    #{$section-tabs}__tab-inner {
+        border-color: $color;
+        color: $color;
+
+        &.active {
+            background: $color;
+            color: #fff;
+        }
+
+        &:hover,
+        &.active:hover {
+            background: darken($color, 2);
+            color: #fff;
+        }
+
+        &:active {
+            background: darken($color, 10);
+            color: #fff;
+        }
+    }
+
+    #{$section-tabs}__tab-link:active,
+    #{$section-tabs}__tab-link:focus {
+        #{$section-tabs}__tab-inner {
+            background: darken($color, 20);
+            color: #fff;
+        }
+    }
+}
+
+.ang-section-nav-tabs {
+    $self: &;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+
+    &__tab {
+        display: inline-block;
+        margin: 1rem;
+    }
+
+    &__tab-link {
+        border: 5px solid $color-green--25;
+        border-radius: 2rem;
+        cursor: pointer;
+        display: inline-block;
+        padding: 0;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__tab-inner {
+        border: 2px solid $color-green;
+        border-radius: 2rem;
+        color: $color-green;
+        font-size: 16px;
+        line-height: 40px;
+        max-width: 250px;
+        padding: 0 2rem;
+
+        &.active {
+            background: $color-green;
+            color: #fff;
+        }
+
+        &:hover,
+        &.active:hover {
+            background: darken($color-green, 2);
+            color: #fff;
+        }
+    }
+
+
+    &__tab:nth-child(8n+1) {
+        @include section-tab-color($self, $color-energy, $color-energy--25);
+    }
+    
+    &__tab:nth-child(8n+2) {
+        @include section-tab-color($self, $color-passion, $color-passion--25);
+    }
+
+    &__tab:nth-child(8n+3) {
+        @include section-tab-color($self, $color-grounded, $color-grounded--25);
+    }
+
+    &__tab:nth-child(8n+4) {
+        @include section-tab-color($self, $color-calm, $color-calm--25);
+    }
+
+    &__tab:nth-child(8n+5) {
+        @include section-tab-color($self, $color-human, $color-human--25);
+    }
+
+    &__tab:nth-child(8n+6) {
+        @include section-tab-color($self, $color-depth, $color-depth--25);
+    }
+
+
+    &__tab:nth-child(8n+7) {
+        @include section-tab-color($self, $color-graphite, $color-graphite--25);
+    }
+
+    &__tab:nth-child(8n) {
+        @include section-tab-color($self, $color-black, $color-black--25);
+    }
+
+
+}

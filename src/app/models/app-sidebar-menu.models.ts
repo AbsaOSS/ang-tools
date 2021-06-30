@@ -28,6 +28,7 @@ export namespace AppSidebarMenu {
                 icon: 'home',
                 routerLink: '/',
                 routerLinkActivePattern: '^$|^\\/$'
+                    + '|^/components-example'
             },
         ]
     }

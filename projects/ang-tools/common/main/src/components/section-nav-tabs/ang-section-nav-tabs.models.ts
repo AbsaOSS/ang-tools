@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2021 ABSA Group Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,21 +14,27 @@
  * limitations under the License.
  */
 
-@import 'vars';
-@import 'mixins';
 
-.ang-no-result {
-    color: $color-grey-dark--50;
-    padding: 1rem 0;
-    text-align: center;
+import { Params } from '@angular/router'
 
-    mat-icon.mat-icon {
-        @include icon-size(72px);
+
+export namespace AngSectionNavTabs {
+
+    export type TabLinkInfo = {
+        label: string
+        routerLink?: string | string[]
+        routerQueryParams?: Params
+        urlActivePattern?: string
     }
 
-    &__message {
-        color: $color-grey-dark;
+    export type TabInfo = {
+        id: string
+        label: string
     }
+
+    export type TabsList =
+        | TabInfo[]
+        | TabLinkInfo[]
+        | (TabInfo | TabLinkInfo)[]
+
 }
-
-

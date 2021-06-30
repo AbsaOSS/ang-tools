@@ -18,5 +18,6 @@ export * from './icon/public-api'
 export * from './loader/public-api'
 export * from './long-text/public-api'
 export * from './no-result/public-api'
+export * from './section-nav-tabs/public-api'
 export * from './ang-common-components.module'
 

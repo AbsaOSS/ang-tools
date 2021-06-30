@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2021 ABSA Group Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,21 +14,26 @@
  * limitations under the License.
  */
 
-@import 'vars';
-@import 'mixins';
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 
-.ang-no-result {
-    color: $color-grey-dark--50;
-    padding: 1rem 0;
-    text-align: center;
+import { AngSectionNavTabs } from './ang-section-nav-tabs.models'
 
-    mat-icon.mat-icon {
-        @include icon-size(72px);
+
+@Component({
+    selector: 'ang-section-nav-tabs',
+    templateUrl: './ang-section-nav-tabs.component.html',
+})
+export class AngSectionNavTabsComponent {
+
+    @Input() activeTabId: string
+
+    @Input() tabsList: AngSectionNavTabs.TabsList = []
+
+    @Output() activeTabChanged$ = new EventEmitter<string>()
+
+    onTabClicked(tabInfo: AngSectionNavTabs.TabInfo): void {
+        this.activeTabId = tabInfo.id
+        this.activeTabChanged$.emit(tabInfo.id)
     }
 
-    &__message {
-        color: $color-grey-dark;
-    }
 }
-
-

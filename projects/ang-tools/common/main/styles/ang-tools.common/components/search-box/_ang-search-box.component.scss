@@ -19,7 +19,7 @@
 
 // TODO: adjust colors and use it from palette.
 $input-bg: $color-grey-light-2;
-$input-text-color: $color-grey-dark-75;
+$input-text-color: $color-grey-dark--75;
 
 $input-bg--active: $color-grey-light-2;
 $input-text-color--active: $color-grey-dark;
@@ -138,9 +138,9 @@ $border-radius: $height / 2;
 }
 
 ang-search-box[theme='grey'] .spline-search-box {
-    @include spline-search-box($color-grey-light, $color-grey-dark-50, $color-grey-dark);
+    @include spline-search-box($color-grey-light, $color-grey-dark--50, $color-grey-dark);
 }
 
 ang-search-box[theme='white-transparent'] .spline-search-box {
-    @include spline-search-box($color-white-25, $color-white-55, $color-grey-dark, $color-grey-light-2);
+    @include spline-search-box($color-white--25, $color-white--55, $color-grey-dark, $color-grey-light-2);
 }
